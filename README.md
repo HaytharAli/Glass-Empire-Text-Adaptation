@@ -1,0 +1,1 @@
+Glass Empire Text Adaptation
