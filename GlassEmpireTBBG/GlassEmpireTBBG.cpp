@@ -1,0 +1,17 @@
+// GlassEmpireTBBG.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+
+int main()
+{
+    std::string input;
+    while (true) {
+        std::cin >> input;
+        game(input);
+    }
+}
+
+void game(std::string input) {
+    
+}
