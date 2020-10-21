@@ -18,7 +18,6 @@ int main()
 	//Create a pointer array to easily call on the players
 	Player* players[4];
 
-
 	//Load the splash screen from XML and print it
 	gamePrint(); //<--- To be implemented!!!
 
@@ -28,7 +27,7 @@ int main()
 	std::cin >> input;
 	//Performs the action based on the input
 	//Include a pointer to any game elements the actions could change
-	action(input, &scene);
+	action(input, &scene, players);
 
 
 
