@@ -16,7 +16,7 @@ int main()
 	Player P4;
 	
 	//Create a pointer array to easily call on the players
-	Player* players[4];
+	Player* players[4]; //This is a test comment 
 
 
 	//Load the splash screen from XML and print it
