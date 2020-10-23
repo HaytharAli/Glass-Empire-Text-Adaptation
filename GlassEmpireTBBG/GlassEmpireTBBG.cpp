@@ -30,5 +30,4 @@ int main()
 	action(input, &scene, players);
 
 
-
 }
