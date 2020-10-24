@@ -2,6 +2,9 @@
 //
 
 #include <iostream>
+#include "Player.h"
+#include "Enforcer.h"
+#include "Mover.h"
 
 int main()
 {
@@ -10,10 +13,10 @@ int main()
 	std::string input;
 
 	//Initialize 4 Players of the Player Class. These will setup during the game set up.
-	Player P1;
-	Player P2;
-	Player P3;
-	Player P4;
+	Enforcer E1;
+	Enforcer E2;
+	Mover M1;
+	Mover M2;
 	
 	//Create a pointer array to easily call on the players
 	Player* players[4]; //This is a test comment 

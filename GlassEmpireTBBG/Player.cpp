@@ -1,9 +1,17 @@
 #include "Player.h"
 
-bool Player::getIsEnforcer()
+
+
+Player::Player() //creates a player
 {
-	return this->isEnforcer;
+	
+	money = 100; //PLACEHOLDER VALUE
+	street = 0; //Starting street
+	locOnStreet = 0; //Beginning of the street
+
 }
+
+
 
 void Player::addResource(int type)
 {
@@ -41,42 +49,7 @@ void Player::removeResource(int type)
 	std::reverse(std::begin(this->resources), std::end(this->resources));
 }
 
-bool Player::readyToWin()
-{
-	bool r1 = false;
-	bool r2 = false;
-	bool r3 = false;
-	if (!this->getIsEnforcer()) {
-		for (int i = 0; i < 10; i++) {
-			if (this->resources[i] == 1) {
-				r1 = true;
-			}
-			if (this->resources[i] == 2) {
-				r2 = true;
-			}
-			if (this->resources[i] == 3) {
-				r3 = true;
-			}
-		}
-	}
-	else {
-		for (int i = 0; i < 10; i++) {
-			if (this->resources[i] == 4) {
-				r1 = true;
-			}
-			if (this->resources[i] == 5) {
-				r2 = true;
-			}
-			if (this->resources[i] == 6) {
-				r3 = true;
-			}
-		}
-	}
-	if (r1 && r2 && r3) {
-		return true;
-	}
-	return false;
-}
+
 
 void Player::addMoney(int profit)
 {
