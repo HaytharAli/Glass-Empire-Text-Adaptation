@@ -22,16 +22,22 @@ std::string Player::getName()
 
 bool Player::getIsEnforcer()
 {
-	return this->isEnforcer;
+	
+	money = 100; //PLACEHOLDER VALUE
+	street = 0; //Starting street
+	locOnStreet = 0; //Beginning of the street
+
 }
 
-void Player::addMoney(int profit)
+bool Player::addMoney(int profit)
 {
 	if ((this->money - profit) > 0) {
 		this->money = this->getBalance() - profit;
+		return true;
 	}
 	else {
 		std::cout << this->getName() << " does not have enough money for this transaction." << std::endl;
+		return false;
 	}
 }
 

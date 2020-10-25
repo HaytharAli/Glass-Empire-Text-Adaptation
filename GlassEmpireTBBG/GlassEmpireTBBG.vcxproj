@@ -139,7 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="Board.cpp" />
     <ClCompile Include="GlassEmpireTBBG.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Resource.cpp" />
@@ -147,6 +148,8 @@
   <ItemGroup>
     <ClInclude Include="Card.h" />
     <ClInclude Include="GlassEmpireTBBG.h" />
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="Board.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>
