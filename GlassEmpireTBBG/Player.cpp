@@ -24,13 +24,15 @@ bool Player::getIsEnforcer()
 	return this->isEnforcer;
 }
 
-void Player::addMoney(int profit)
+bool Player::addMoney(int profit)
 {
 	if ((this->money - profit) > 0) {
 		this->money = this->getBalance() - profit;
+		return true;
 	}
 	else {
 		std::cout << this->getName() << " does not have enough money for this transaction." << std::endl;
+		return false;
 	}
 }
 
