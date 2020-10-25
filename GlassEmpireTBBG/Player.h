@@ -33,6 +33,8 @@ public:
 	
 	bool readyToWin(); // Checks Win Condition, can also be used by player to see what they still need!
 
-	Player(std::string name, bool isEnforcer);
+	void printInfo(); //Gives information about a player, used for troubleshooting purposes.
+
+	Player(std::string name = "", bool isEnforcer = false);
 
 };

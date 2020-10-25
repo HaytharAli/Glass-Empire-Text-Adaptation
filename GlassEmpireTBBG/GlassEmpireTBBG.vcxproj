@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
+    <ClInclude Include="GlassEmpireTBBG.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>

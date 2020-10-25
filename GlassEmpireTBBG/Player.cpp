@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 //Private:
 
 int Player::getResource(std::string type)
@@ -159,6 +160,22 @@ bool Player::readyToWin()
 		}
 	}
 	return false;
+}
+
+void Player::printInfo()
+{
+	std::cout << "Heres some info about player " << getName() << std::endl
+		<< "They are a: ";
+	if (getIsEnforcer())
+		std::cout << "Enforcer\n";
+	else
+		std::cout << "Mover\n";
+	std::cout << "Current cash: " << getBalance() << std::endl;
+
+
+
+	std::cout << "\n\n\n"; //Kepe this at the end. Space out player info to make it more discenable when player 1 info stops and player 2 info starts
+
 }
 
 Player::Player(std::string name, bool isEnforcer)
