@@ -2,13 +2,18 @@
 #include <string>
 class Resource
 {
-protected:
-	std::string itemName;
-	int value;
-public: 
-	
-	Resource(std::string, int val = 50);
+	std::string name;
+	int cost;
+
+	void setName(std::string name);
+	void setCost();
+public:
+
 	std::string getName();
-	std::string getValue();
+	int getCost();
+	void addResource(std::string name);
+	void clear();
+
+	Resource();
 };
 
