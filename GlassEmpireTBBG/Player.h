@@ -17,7 +17,7 @@ public:
 	void addResource(int type);
 	void removeResource(int type);
 	bool readyToWin();
-	void addMoney(int profit); //Adds cash to player's wallet. Profit can be negative to reduce total, but the balance can't go below zero.
+	bool addMoney(int profit); //Adds cash to player's wallet. Profit can be negative to reduce total, but the balance can't go below zero.
 	int getBalance();
 	std::string getName();
 	void setStreet(int newStreet);
