@@ -139,17 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="Card.cpp" />
-    <ClCompile Include="Enforcer.cpp" />
     <ClCompile Include="GlassEmpireTBBG.cpp" />
-    <ClCompile Include="Mover.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Card.h" />
-    <ClInclude Include="Enforcer.h" />
-    <ClInclude Include="Mover.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>

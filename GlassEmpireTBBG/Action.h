@@ -1,8 +1,8 @@
-#pragma once 
-#include <iostream> 
-#include <random>
-#include "Player.h" 
-#include "Resource.h"
+#pragma once  
+#include <iostream>  
+#include <random> 
+#include "Player.h"  
+#include "Resource.h" 
 
 class Action
 {
@@ -15,4 +15,3 @@ public:
 	void CheckAction(Player player, std::string checkCard);
 	void DoingAction(Player player1, Player player2);
 };
-

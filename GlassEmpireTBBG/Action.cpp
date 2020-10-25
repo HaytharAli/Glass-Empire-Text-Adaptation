@@ -1,4 +1,4 @@
-#include "Action.h" 
+#include "Action.h"  
 
 void Action::AddAction(Player player)
 {
@@ -29,7 +29,7 @@ void Action::AddAction(Player player)
 void Action::RemoveAction(Player player, std::string removeCard)
 {
 
-// remvoing action cards
+	// remvoing action cards 
 
 	int i = 0;
 	bool exitFlag = false;
@@ -47,7 +47,7 @@ void Action::RemoveAction(Player player, std::string removeCard)
 		}
 	}
 
-// reording the action cards
+	// reording the action cards 
 
 	if (i == 10)
 	{
@@ -74,11 +74,11 @@ void Action::RemoveAction(Player player, std::string removeCard)
 
 void Action::CheckAction(Player player, std::string checkCard)
 {
-	 int i = 0;
-	 bool exitFlag = false;
+	int i = 0;
+	bool exitFlag = false;
 
-	 while (exitFlag == false && i < 10)
-	 {
+	while (exitFlag == false && i < 10)
+	{
 		if (player.actions[i] == checkCard)
 		{
 			std::cout << "Found " << checkCard << " at " << i;
@@ -86,14 +86,14 @@ void Action::CheckAction(Player player, std::string checkCard)
 		}
 		else
 		{
-	 		i += 1;
+			i += 1;
 		}
-	 }
+	}
 
-	 if (i == 10)
-	 {
-		 std::cout << "Could not find action card";
-	 }
+	if (i == 10)
+	{
+		std::cout << "Could not find action card";
+	}
 }
 
 void Action::DoingAction(Player player1, Player player2)
@@ -105,13 +105,13 @@ void Action::DoingAction(Player player1, Player player2)
 	{
 		if (player1.actions[i] == "Take Money")
 		{
-			player1.addMoney(50);		// Placeholder number
-			player2.addMoney(-50);		// Placeholder number
+			player1.addMoney(50);		// Placeholder number 
+			player2.addMoney(-50);		// Placeholder number 
 		}
 		if (player1.actions[i] == "Take Resource")
 		{
-			player1.addResource(1);		// Placeholder number
-			player2.removeResource(1);  // Placeholder number
+			player1.addResource(1);		// Placeholder number 
+			player2.removeResource(1);  // Placeholder number 
 		}
 		if (player1.actions[i] == "Force Trade")
 		{
