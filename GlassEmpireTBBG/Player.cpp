@@ -23,9 +23,7 @@ std::string Player::getName()
 bool Player::getIsEnforcer()
 {
 	
-	money = 100; //PLACEHOLDER VALUE
-	street = 0; //Starting street
-	locOnStreet = 0; //Beginning of the street
+	return this->isEnforcer;
 
 }
 

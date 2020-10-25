@@ -1,6 +1,6 @@
 #include "Board.h"
 using namespace std;
-
+/*
 
 void spaceValues(int board[][5], int space, int street, Player player) {
 	//method is sent board and players street and space 
@@ -92,7 +92,7 @@ void main() {
 	* 11 enforcer win
 	* 12 mover win
 	* 13 start
-		*/
+		
 	int board[9][5] = {
 		//start
 		{ 0,10,7,10,1 },
@@ -114,4 +114,4 @@ void main() {
 		{ 10,7,7,0,3 } };
 
 
-}
+}*/

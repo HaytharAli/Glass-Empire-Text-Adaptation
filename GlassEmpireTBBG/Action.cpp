@@ -1,5 +1,5 @@
 #include "Action.h"  
-
+/*
 void Action::AddAction(Player player)
 {
 	int r = rand() % 3;
@@ -121,3 +121,4 @@ void Action::DoingAction(Player player1, Player player2)
 
 
 }
+*/
