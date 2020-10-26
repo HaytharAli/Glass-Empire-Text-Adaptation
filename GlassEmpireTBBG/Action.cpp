@@ -1,4 +1,10 @@
 #include "Action.h"  
+Action::Action()
+{
+	this->name = "";
+	this->description = "";
+
+}
 /*
 void Action::AddAction(Player player) //Gives the player an action card
 {

@@ -87,7 +87,7 @@ void Player::removeResource(std::string type)
 	}
 }
 
-void Player::addActionCard()
+/*oid Player::addActionCard()
 {
 	for (int i = 0; i < 10; i++) {
 		if (this->aCards[i].getName() == "") {
@@ -110,6 +110,7 @@ bool Player::useActionCard(std::string type)
 	std::cout << this->getName() << " does not have card \"" << type << "\"" << std::endl;
 	return false;
 }
+
 
 void Player::printInv()
 {
@@ -157,6 +158,7 @@ void Player::printInv()
 	}
 
 }
+*/
 
 void Player::setStreet(int newStreet)
 {
