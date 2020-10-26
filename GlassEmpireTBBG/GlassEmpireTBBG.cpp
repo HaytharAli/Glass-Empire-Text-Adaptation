@@ -21,7 +21,7 @@ void fork(Player &, int curStreet); //Takes in a player and their current street
 
 
 
-void proposeTrade(Player); //proposes trade with other player
+void proposeTrade(Player &); //proposes trade with other player
 void checkMap(Player); //tells where they are on the map, what is around them
 void checkInven(Player &); //checks player inventory, can play action cards from here
 
@@ -30,7 +30,7 @@ int checkValidInput(int input, int min, int max); //Makes sure user inputs are v
 
 
 
-
+Player playerList[4];
 
 int main()
 {
@@ -41,7 +41,7 @@ int main()
 	//SET UP: I tried making this into a seperate method, but pointers were giving me trouble with the array. If someone can fix it, give it a go
 
 	
-	Player playerList[4];
+	
 
 	Player Enf1("Enforcer1", true); //default names, we can allow the user to input them if they have time.
 	Enf1.addResource("Chems");
@@ -285,8 +285,41 @@ void fork(Player &p, int curStreet)
 }
 
 
-void proposeTrade(Player p)
+void proposeTrade(Player& p)
 {
+	int choice;
+	int offer;
+	int request;
+	char agree;
+	cout << "Who would you like to trade with?" << endl;
+	for (int i = 0; i < 4; i++)
+	{
+		cout << i << ":" << playerList[i].getName() << endl;
+	}
+	cin >> choice;
+	choice = checkValidInput(choice, 0, 3);
+
+	cout << "What do you offer?" << endl;
+	p.printInv();
+	cin >> offer;
+
+	cout << "What do you want?" << endl;
+	playerList[choice].printInv();
+	cin >> request;
+
+	cout << "Does " << playerList[choice].getName() << " agree with this? (Y/N)";
+	cin >> agree;
+
+	if (agree == 'y' || agree == 'Y')
+	{
+		//exchange resources
+		cout << "Trade complete" << endl;
+	}
+	else
+	{
+		cout << "Trade rejected" << endl;
+	}
+
 }
 void checkMap(Player p)
 {
