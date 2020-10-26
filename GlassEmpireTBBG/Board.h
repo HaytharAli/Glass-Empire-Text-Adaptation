@@ -3,9 +3,9 @@
 using namespace std;
 class Board
 {
-	void spaceValues(int board[][5], int space, int street);
+	
 public:
-
+	void spaceValues(int board[][5], int space, int street, Player p);
 	Board();
 	int board[9][5];
 };

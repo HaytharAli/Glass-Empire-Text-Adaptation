@@ -5,8 +5,6 @@ using namespace std;
 void spaceValues(int board[][5], int space, int street, Player player) {
 	//method is sent board and players street and space 
 
-
-		//
 	switch (board[space][street]) {
 	case 0:
 		cout << "You landed on an empty space." << endl;
