@@ -55,20 +55,14 @@ int Player::getBalance()
 
 void Player::addResource(std::string type)
 {
-	//Check if inventory is full by checking if the last slot is occupied. Items are added to the end of the resouce list,
-	//and when removed, the list is sorted to put the empty slots at the back
-	if (this->resources[9].getName() != "") {
-		std::cout << this->getName() << " has a full inventory, and picked nothing up." << std::endl;
-	}
-	else {
-		for (int i = 0; i < 10; i++) {
-			if (this->resources[i].getName() == "") {
-				this->resources[i].addResource(type);
-				std::cout << type << " added to " << this->getName() << "'s inventory" << std::endl;
-				return;
-			}
+	for (int i = 0; i < 10; i++) {
+		if (this->resources[i].getName() == "") {
+			this->resources[i].addResource(type);
+			std::cout << type << " added to " << this->getName() << "'s inventory" << std::endl;
+			return;
 		}
 	}
+	std::cout << this->getName() << " has a full resource inventory, and picked nothing up." << std::endl;
 }
 
 int Player::getResourceCost(std::string type)
@@ -91,6 +85,77 @@ void Player::removeResource(std::string type)
 			return;
 		}
 	}
+}
+
+void Player::addActionCard()
+{
+	for (int i = 0; i < 10; i++) {
+		if (this->aCards[i].getName() == "") {
+			this->aCards[i].createCard();
+			std::cout << this->aCards[i].getName() << " added to " << this->getName() << "'s inventory" << std::endl;
+			return;
+		}
+	}
+	std::cout << this->getName() << " has a full Action Card inventory, and picked nothing up." << std::endl;
+}
+
+bool Player::useActionCard(std::string type)
+{
+	for (int i = 0; i < 10; i++) {
+		if (this->aCards[i].getName() == type) {
+			this->aCards[i].useAction();
+			return true;
+		}
+	}
+	std::cout << this->getName() << " does not have card \"" << type << "\"" << std::endl;
+	return false;
+}
+
+void Player::printInv()
+{
+	std::cout << this->name << " has the following items." << std::endl;
+	std::cout << "Resources:" << std::endl;
+	{
+		int chems = 0;
+		int gas = 0;
+		int flask = 0;
+		int prints = 0;
+		int witness = 0;
+		int photo = 0;
+
+		for (int i = 0; i < 10; i++) {
+			if (resources[i].getName() == "Chems") {
+				chems++;
+			}
+			else if (resources[i].getName() == "Gas") {
+				gas++;
+			}
+			else if (resources[i].getName() == "Flask") {
+				flask++;
+			}
+			else if (resources[i].getName() == "Prints") {
+				prints++;
+			}
+			else if (resources[i].getName() == "Witness") {
+				witness++;
+			}
+			else if (resources[i].getName() == "Photo") {
+				photo++;
+			}
+		}
+
+		std::cout << "Chemicals: " << chems << std::endl;
+		std::cout << "Acetylene Fuel: " << chems << std::endl;
+		std::cout << "Boiling Flasks: " << chems << std::endl;
+		std::cout << "Fingerprints: " << chems << std::endl;
+		std::cout << "Witness Testimony: " << chems << std::endl;
+		std::cout << "Incriminating Photos" << chems << std::endl;
+	}
+	std::cout << "Action Cards:" << std::endl;
+	for (int i = 0; i < 10; i++) {
+		std::cout << aCards[i].getName() << std::endl;
+	}
+
 }
 
 void Player::setStreet(int newStreet)

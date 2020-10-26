@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Resource.h"
+#include "Action.h"
 
 class Player
 {
@@ -9,6 +10,7 @@ class Player
 	bool isEnforcer; //if true, Enforcer, else a Mover
 	int money; // How much money the player has
 	Resource resources[10];
+	Action aCards[10];
 	int street;
 	int locOnStreet;
 
@@ -26,6 +28,11 @@ public:
 	void addResource(std::string type);
 	int getResourceCost(std::string type); // Returns the value of the resource in the player's inventory
 	void removeResource(std::string type);
+	
+	void addActionCard();
+	bool useActionCard(std::string type); //Returns true if Action Card used, otherwise false if there was no action card of that type found
+
+	void printInv();
 
 	void setStreet(int newStreet);
 	void setLocOnStreet(int newLoc);
