@@ -44,6 +44,8 @@ int main()
 	Player playerList[4];
 
 	Player Enf1("Enforcer1", true); //default names, we can allow the user to input them if they have time.
+	Enf1.addResource("Chems");
+	Enf1.addResource("Prints");
 	Player Enf2("Enforcer2", true);
 	Player Mov1("Mover1", false);
 	Player Mov2("Mover2", false);
@@ -288,7 +290,7 @@ void checkMap(Player p)
 }
 void checkInven(Player &p)
 {
-
+	p.printInv();
 }
 
 int checkValidInput(int input, int min, int max)

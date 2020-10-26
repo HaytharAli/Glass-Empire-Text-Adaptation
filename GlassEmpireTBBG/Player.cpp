@@ -111,11 +111,13 @@ bool Player::useActionCard(std::string type)
 	return false;
 }
 
-
+*/
 void Player::printInv()
 {
-	std::cout << this->name << " has the following items." << std::endl;
-	std::cout << "Resources:" << std::endl;
+	std::cout << this->name << " has the following items:" << std::endl
+		<< "Cash: " << this->getBalance() << endl;
+	
+	std::cout << "Current Resources in Inventory:" << std::endl;
 	{
 		int chems = 0;
 		int gas = 0;
@@ -144,21 +146,27 @@ void Player::printInv()
 				photo++;
 			}
 		}
-
+		if (chems != 0)
 		std::cout << "Chemicals: " << chems << std::endl;
-		std::cout << "Acetylene Fuel: " << chems << std::endl;
-		std::cout << "Boiling Flasks: " << chems << std::endl;
-		std::cout << "Fingerprints: " << chems << std::endl;
-		std::cout << "Witness Testimony: " << chems << std::endl;
-		std::cout << "Incriminating Photos" << chems << std::endl;
+		if (gas != 0)
+		std::cout << "Acetylene Fuel: " << gas << std::endl;
+		if (flask != 0)
+		std::cout << "Boiling Flasks: " << flask << std::endl;
+		if (prints != 0)
+		std::cout << "Fingerprints: " << prints << std::endl;
+		if (witness != 0)
+		std::cout << "Witness Testimony: " << witness << std::endl;
+		if (photo != 0)
+		std::cout << "Incriminating Photos: " << photo << std::endl;
 	}
+	/*
 	std::cout << "Action Cards:" << std::endl;
 	for (int i = 0; i < 10; i++) {
 		std::cout << aCards[i].getName() << std::endl;
-	}
-
+		}*/
+	
 }
-*/
+
 
 void Player::setStreet(int newStreet)
 {
