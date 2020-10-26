@@ -12,5 +12,6 @@ class Action
 public:
 	void AddAction(Player& player);
 	void RemoveAction(Player& player, std::string removeCard);
+	bool CheckAction(Player player, std::string checkCard);
 	void DoingAction(Player& player1, Player& player2, int actionTaken);
 };

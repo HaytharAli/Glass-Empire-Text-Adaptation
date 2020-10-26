@@ -76,27 +76,71 @@ void Action::RemoveAction(Player& player, std::string removeCard)
 	}
 }
 
-void Action::DoingAction(Player& fromPlayer, Player& toPlayer, int actionTaken)
+bool Action::CheckAction(Player player, std::string checkCard)
+{
+	int i = 0;
+	bool exitFlag = false;
+
+	while (exitFlag == false && i < 10)
+	{
+		if (player.actions[i] == checkCard)
+		{
+			return true;
+			exitFlag = true;
+		}
+		else
+		{
+			i += 1;
+		}
+	}
+
+	if (i == 10)
+	{
+		return false;
+	}
+}
+
+void Action::DoingAction(Player& userPlayer, Player& targetPlayer, int actionTaken)
 {
 	int switchCount;
 
-	if (fromPlayer.actions[actionTaken - 1] == "Take Money") switchCount = 1;
-	if (fromPlayer.actions[actionTaken - 1] == "Take Resource") switchCount = 2;
-	if (fromPlayer.actions[actionTaken - 1] == "Force Trade") switchCount = 3;
-	if (fromPlayer.actions[actionTaken - 1] == "Double Resource Price") switchCount = 4;
+	if (userPlayer.actions[actionTaken - 1] == "Take Money") switchCount = 1;
+	if (userPlayer.actions[actionTaken - 1] == "Take Resource") switchCount = 2;
+	if (userPlayer.actions[actionTaken - 1] == "Double Resource Price") switchCount = 3;
+	//if (userPlayer.actions[actionTaken - 1] == "Force Trade") switchCount = 4;
 
 	switch (switchCount)
 	{
-	case 1:
-		fromPlayer.addMoney(50);	// Placeholder
-		toPlayer.addMoney(-50);		// Placeholder	
+	case 1: 
+		if (targetPlayer.getBalance() >= 50)
+		{
+			targetPlayer.addMoney(-50);
+			userPlayer.addMoney(50);
+		}
+		else
+		{
+			targetPlayer.addMoney(-targetPlayer.getBalance());
+			userPlayer.addMoney(targetPlayer.getBalance());
+		}
 	case 2:
-		fromPlayer.addResource("");	 // Placeholder
-		toPlayer.removeResource("");  // Placeholder
+		std::string targetResource;
+
+		std::cout << "Which resource would you like to take? ";
+		std::cin >> targetResource;
+
+		if (checkResource(targetResource))
+		{
+			userPlayer.addResource(targetResource);
+			targetPlayer.removeResource(targetResource);
+		}
+		else
+		{
+			std::cout << "\nThis resource is not in the inventory." << std::endl;
+		}
 	case 3:
 
 
-	case 4:
+//	case 4:
 //		fromPlayer.cost - fromPlayer.getResourceCost("")
 
 	default:
