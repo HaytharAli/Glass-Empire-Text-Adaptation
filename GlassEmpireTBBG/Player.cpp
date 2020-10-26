@@ -290,3 +290,7 @@ Player::Player(std::string name, bool isEnforcer)
 	this->street = 0;
 	this->locOnStreet = 0;
 }
+void Player::setMoney(int amount)
+{
+	this->money = amount;
+}
