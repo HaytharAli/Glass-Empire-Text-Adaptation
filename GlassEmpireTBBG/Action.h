@@ -1,8 +1,9 @@
-#pragma once  
-#include <iostream>  
-#include <random> 
-#include "Player.h"  
-#include "Resource.h" 
+#pragma once 
+#include <iostream> 
+#include <random>
+#include <vector>
+#include "Player.h" 
+#include "Resource.h"
 
 class Action {
 	std::string name;
