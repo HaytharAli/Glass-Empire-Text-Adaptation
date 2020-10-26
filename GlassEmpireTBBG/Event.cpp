@@ -41,7 +41,7 @@ void Event::gainCash(Player triggerPlayer)
 		break;
 	}
 
-	std::cout << triggerPlayer.getName() << " found $" << cash << " " << reason;
+	std::cout << triggerPlayer.getName() << " found $" << cash << " " << reason << std::endl;
 }
 
 void Event::moverCash(Player triggerPlayer, Player other1, Player other2, Player other3)
@@ -97,7 +97,7 @@ void Event::moverCash(Player triggerPlayer, Player other1, Player other2, Player
 		break;
 	}
 
-	std::cout << "Movers received $" << cash << reason;
+	std::cout << "Movers received $" << cash << reason << std::endl;
 }
 
 void Event::enforcerCash(Player triggerPlayer, Player other1, Player other2, Player other3)
@@ -153,7 +153,7 @@ void Event::enforcerCash(Player triggerPlayer, Player other1, Player other2, Pla
 		break;
 	}
 
-	std::cout << "Movers received $" << cash << reason;
+	std::cout << "Movers received $" << cash << reason << std::endl;
 }
 
 void Event::payDay(Player triggerPlayer, Player other1, Player other2, Player other3)
@@ -201,14 +201,14 @@ void Event::payDay(Player triggerPlayer, Player other1, Player other2, Player ot
 		break;
 	}
 
-	std::cout << "Everyone received $" << cash << reason;
+	std::cout << "Everyone received $" << cash << reason << std::endl;
 }
 
 void Event::sting(Player triggerPlayer)
 {
 	triggerPlayer.setLocOnStreet(0);
 	triggerPlayer.setStreet(0);
-	std::cout << "Someone called the cops! You're going to the police station, but they\'ll let you go on lack of evidence."
+	std::cout << "Someone called the cops! You're going to the police station, but they\'ll let you go on lack of evidence." << std::endl;
 }
 
 void Event::loseCash(Player triggerPlayer)
@@ -256,19 +256,20 @@ void Event::loseCash(Player triggerPlayer)
 		break;
 	}
 
-	std::cout << triggerPlayer.getName() << " spent $" << cash << reason;
+	std::cout << triggerPlayer.getName() << " spent $" << cash << reason << std::endl;
 }
 
 void Event::HandoutCash(Player triggerPlayer, Player other1, Player other2, Player other3)
 {
 	if (triggerPlayer.getBalance() > 100) {
+		std::cout << triggerPlayer.getName() << " found themselves in a bad way and has to pay everyone else." << std::endl;
 		triggerPlayer.addMoney(-100);
 		other1.addMoney(33);
 		other2.addMoney(34);
 		other3.addMoney(33);
 	}
 	else {
-		std::cout << triggerPlayer.getName() << " was supposed to pay everyone, but he doesn't have enough money.";
+		std::cout << triggerPlayer.getName() << " was supposed to pay everyone, but he doesn't have enough money." << std::endl;
 	}
 }
 
