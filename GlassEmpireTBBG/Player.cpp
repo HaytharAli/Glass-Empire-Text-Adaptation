@@ -22,15 +22,22 @@ std::string Player::getName()
 
 bool Player::getIsEnforcer()
 {
-	
 	return this->isEnforcer;
-
 }
 
 bool Player::addMoney(int profit)
 {
 	if ((this->money - profit) > 0) {
 		this->money = this->getBalance() - profit;
+		if (profit > 0) {
+			std::cout << this->getName() << " gained " << profit << " and now has a balance of " << this->getBalance() << std::endl;
+		}
+		else if (profit < 0) {
+			std::cout << this->getName() << " lost " << profit << " and now has a balance of " << this->getBalance() << std::endl;
+		}
+		else {
+			std::cout << this->getName() << "did not have his cash balance change.";
+		}
 		return true;
 	}
 	else {
@@ -55,7 +62,7 @@ void Player::addResource(std::string type)
 		for (int i = 0; i < 10; i++) {
 			if (this->resources[i].getName() == "") {
 				this->resources[i].addResource(type);
-				std::cout << type << " added to inventory" << std::endl;
+				std::cout << type << " added to " << this->getName() << "'s inventory" << std::endl;
 				return;
 			}
 		}
@@ -66,7 +73,7 @@ int Player::getResourceCost(std::string type)
 {
 	int i = getResource(type);
 	if (i == 10) {
-		std::cout << this->name << " does not have the resource \"" << type << "\"" << std::endl;
+		//std::cout << this->name << " does not have the resource \"" << type << "\"" << std::endl;
 		return 0;
 	}
 	else {
@@ -86,7 +93,7 @@ void Player::removeResource(std::string type)
 
 void Player::setStreet(int newStreet)
 {
-	this->street = street;
+	this->street = newStreet;
 }
 
 void Player::setLocOnStreet(int newLoc)
@@ -170,7 +177,7 @@ void Player::printInfo()
 {
 	std::cout << "Heres some info about player " << getName() << std::endl
 		<< "They are a: ";
-	if (getIsEnforcer())
+	if (isEnforcer)
 		std::cout << "Enforcer\n";
 	else
 		std::cout << "Mover\n";

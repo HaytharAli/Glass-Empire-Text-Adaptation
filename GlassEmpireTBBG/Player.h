@@ -20,6 +20,7 @@ public:
 	bool getIsEnforcer();
 
 	bool addMoney(int profit); //Adds cash to player's wallet. Profit can be negative to reduce total, but the balance can't go below zero.
+	//Returns bool stating whether the transaction was successful, and print's out a statement on the transaction.
 	int getBalance();
 
 	void addResource(std::string type);
