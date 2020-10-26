@@ -27,25 +27,25 @@ bool Player::getIsEnforcer()
 	return this->isEnforcer;
 }
 
-bool Player::addMoney(int profit)
+bool Player::addMoney(int amount)
 {
-	if ((this->money - profit) > 0) {
-		this->money = this->getBalance() - profit;
-		if (profit > 0) {
-			std::cout << this->getName() << " gained " << profit << " and now has a balance of " << this->getBalance() << std::endl;
-		}
-		else if (profit < 0) {
-			std::cout << this->getName() << " lost " << profit << " and now has a balance of " << this->getBalance() << std::endl;
-		}
-		else {
-			std::cout << this->getName() << "did not have his cash balance change.";
-		}
-		return true;
-	}
-	else {
-		std::cout << this->getName() << " does not have enough money for this transaction." << std::endl;
+	this->money = this->getBalance() + amount;
+	if (this->money < 0)//checking for having less than 0 money
+	{
+		this->money = 0;
 		return false;
 	}
+
+	if (amount > 0) {
+		std::cout << this->getName() << " gained " << amount << " and now has a balance of " << this->getBalance() << std::endl;
+	}
+	else if (amount < 0) {
+		std::cout << this->getName() << " lost " << -1*amount << " and now has a balance of " << this->getBalance() << std::endl;
+	}
+	else {
+		std::cout << this->getName() << "did not have his cash balance change.";
+	}
+	return true;
 }
 
 int Player::getBalance()
@@ -86,8 +86,8 @@ void Player::removeResource(std::string type)
 		}
 	}
 }
-
-/*oid Player::addActionCard()
+/*
+void Player::addActionCard()
 {
 	for (int i = 0; i < 10; i++) {
 		if (this->aCards[i].getName() == "") {

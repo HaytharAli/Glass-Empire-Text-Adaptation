@@ -2,7 +2,6 @@
 #include <iostream> 
 #include <random>
 #include <vector>
-#include "Player.h" 
 #include "Resource.h"
 
 class Action {

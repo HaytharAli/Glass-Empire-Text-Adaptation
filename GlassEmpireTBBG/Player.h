@@ -10,7 +10,7 @@ class Player
 	bool isEnforcer; //if true, Enforcer, else a Mover
 	int money; // How much money the player has
 	Resource resources[10];
-	//Action aCards[10];
+	Action aCards[10];
 	int street;
 	int locOnStreet;
 

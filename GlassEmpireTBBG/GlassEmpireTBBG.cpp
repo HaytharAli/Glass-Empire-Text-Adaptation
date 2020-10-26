@@ -6,6 +6,7 @@
 #include <ctime>
 #include "Player.h"
 #include "Board.h"
+
 using namespace std;
 
 
@@ -22,7 +23,7 @@ void fork(Player &, int curStreet); //Takes in a player and their current street
 
 void proposeTrade(Player); //proposes trade with other player
 void checkMap(Player); //tells where they are on the map, what is around them
-void checkInven(Player); //checks player inventory, can play action cards from here
+void checkInven(Player &); //checks player inventory, can play action cards from here
 
 int checkValidInput(int input, int min, int max); //Makes sure user inputs are valid, bare bones anti crasher.
 
@@ -53,7 +54,7 @@ int main()
 	playerList[3] = Mov2;
 	
 
-	Board board();
+	//Board gameBoard();
 
 	/* Checks data about players, used for debugging purposes
 	playerList[0].printInfo();
@@ -135,6 +136,7 @@ int gamePrint(Player &p)  //Prints options, returns an integer choice
 
 void roll(Player &p)
 {
+	
 	//Get starting location
 	int curStreet = p.getStreet();
 	int curLocOnStreet = p.getLocOnStreet();
@@ -143,18 +145,13 @@ void roll(Player &p)
 	srand(time(NULL));
 	int rollResult = (rand() % 6) + 1; 
 	cout << p.getName() << " rolled and moved " << rollResult << " space(s) forward.";
-	//Move loop, input starting location, and number of steps you need to move forward.
-	move(p, rollResult);
-	//Use a for loop that is the number of steps long, and will check if its at the end of a path each time
-	//if its at the end of a path, itll go into a fork function asking the player where they want to go, then set their location to board[chosen street][0]
-
+	move(p, rollResult);//Move loop, input starting location, and number of steps you need to move forward.
 	
+	//board.spaceValues(p.getLocOnStreet(), p.getStreet() , p);//activate tile effect once finished moving
 
 }
 void move(Player &p, int steps)
 {
-
-	
 	for (int i = 0; i < steps; i++)
 	{
 		if (p.getLocOnStreet() < 5) //not at the end of the street
@@ -169,10 +166,8 @@ void move(Player &p, int steps)
 		}
 		
 	}
-
-	
-	//activate tile effect once finished moving
-
+	Board gameBoard;
+	gameBoard.spaceValues(p.getLocOnStreet(), p.getStreet(), p);
 }
 void fork(Player &p, int curStreet)
 {
@@ -284,14 +279,17 @@ void fork(Player &p, int curStreet)
 
 
 void proposeTrade(Player p)
-{}
+{
+}
 void checkMap(Player p)
 {
 	p.printLocation();
 	//Change this so it also says the spaces in front of you
 }
-void checkInven(Player p)
-{}
+void checkInven(Player &p)
+{
+
+}
 
 int checkValidInput(int input, int min, int max)
 {
@@ -308,7 +306,4 @@ int checkValidInput(int input, int min, int max)
 	return input;
 }
 
-void foo(Player &p)
-{
-	p.setLocOnStreet(3);
-}
+

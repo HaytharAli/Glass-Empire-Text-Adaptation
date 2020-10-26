@@ -3,10 +3,10 @@
 using namespace std;
 
 
-void Board::spaceValues(int board[][5], int space, int street, Player player) {
+void Board::spaceValues(int space, int street, Player player) {
 	//method is sent board and players street and space 
 
-	switch (board[space][street]) 
+	switch (this->board[space][street]) 
 	{
 	case 0:
 		cout << "You landed on an empty space." << endl;
@@ -51,7 +51,7 @@ void Board::spaceValues(int board[][5], int space, int street, Player player) {
 		//make send to middleman method
 		break;
 	case 9:
-		cout << "sting! You have been placed in lockup. \n";
+		cout << "sting! You have been moved to the county jail. \n";
 		player.setLocOnStreet(4);
 		player.setStreet(6);
 		//move player to sting spot
