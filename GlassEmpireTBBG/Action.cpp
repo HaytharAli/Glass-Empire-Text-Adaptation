@@ -1,6 +1,6 @@
 #include "Action.h"  
 /*
-void Action::AddAction(Player player)
+void Action::AddAction(Player player) //Gives the player an action card
 {
 	int r = rand() % 3;
 	int i = 0;

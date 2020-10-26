@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Player.h"
+#include "Board.h"
 using namespace std;
 
 
@@ -32,6 +33,8 @@ int main()
 	playerList[1] = Enf2;
 	playerList[2] = Mov1;
 	playerList[3] = Mov2;
+
+	Board board();
 
 	/* Checks data about players, used for debugging purposes
 	playerList[0].printInfo();
