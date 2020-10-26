@@ -1,35 +1,39 @@
-#include "Action.h"  
+#include "Action.h" 
 
-void Action::AddAction(Player player)
+void Action::AddAction(Player& player)
 {
-	int r = rand() % 3;
-	int i = 0;
-	bool exitFlag = false;
 
-	while (exitFlag == false && i < 10)
+	if (actionCards.size() > 0)
 	{
-		if (player.actions[i] == 0)
+		int actionCount = actionCards.size() - 1;
+		int x = rand() % (actionCount + 1);
+		int i = 0;
+		bool exitFlag = false;
+
+		while (exitFlag == false && i <= x)
 		{
-			std::cout << actionCards[r] << " added to action cards";
-			player.actions[i] = actionCards[r];
-			exitFlag = true;
-		}
-		else
-		{
-			i += 1;
+			if (player.actions[i] == "0")
+			{
+				player.actions[i] = actionCards[x];
+				actionCards.erase(actionCards.begin() + x);
+				exitFlag = true;
+			}
+			else
+			{
+				i += 1;
+			}
 		}
 	}
-
-	if (i == 10)
+	else
 	{
-		std::cout << "You are full";
+		std::cout << "Error: no more action cards\n";
 	}
 }
 
-void Action::RemoveAction(Player player, std::string removeCard)
+void Action::RemoveAction(Player& player, std::string removeCard)
 {
 
-	// remvoing action cards 
+	// remvoing action cards
 
 	int i = 0;
 	bool exitFlag = false;
@@ -38,7 +42,7 @@ void Action::RemoveAction(Player player, std::string removeCard)
 	{
 		if (player.actions[i] == removeCard)
 		{
-			player.actions[i] = 0;
+			player.actions[i] = "0";
 			exitFlag = true;
 		}
 		else
@@ -47,7 +51,7 @@ void Action::RemoveAction(Player player, std::string removeCard)
 		}
 	}
 
-	// reording the action cards 
+	// reording the action cards
 
 	if (i == 10)
 	{
@@ -58,65 +62,46 @@ void Action::RemoveAction(Player player, std::string removeCard)
 		exitFlag = false;
 		while (exitFlag == false && i < 9)
 		{
-			if (player.actions[i] == 0 && player.action[i + 1] == 0)
+			if (player.actions[i] == "0" && player.actions[i + 1] == "0")
 			{
 				exitFlag = true;
 			}
 			else
 			{
-				player.actions[i] = player.action[i + 1];
-				player.actions[i + 1] = 0;
+				player.actions[i] = player.actions[i + 1];
+				player.actions[i + 1] = "0";
 				i += 1;
 			}
 		}
 	}
 }
 
-void Action::CheckAction(Player player, std::string checkCard)
+void Action::DoingAction(Player& fromPlayer, Player& toPlayer, int actionTaken)
 {
-	int i = 0;
-	bool exitFlag = false;
+	int switchCount;
 
-	while (exitFlag == false && i < 10)
+	if (fromPlayer.actions[actionTaken - 1] == "Take Money") switchCount = 1;
+	if (fromPlayer.actions[actionTaken - 1] == "Take Resource") switchCount = 2;
+	if (fromPlayer.actions[actionTaken - 1] == "Force Trade") switchCount = 3;
+	if (fromPlayer.actions[actionTaken - 1] == "Double Resource Price") switchCount = 4;
+
+	switch (switchCount)
 	{
-		if (player.actions[i] == checkCard)
-		{
-			std::cout << "Found " << checkCard << " at " << i;
-			exitFlag = true;
-		}
-		else
-		{
-			i += 1;
-		}
-	}
+	case 1:
+		fromPlayer.addMoney(50);	// Placeholder
+		toPlayer.addMoney(-50);		// Placeholder	
+	case 2:
+		fromPlayer.addResource("");	 // Placeholder
+		toPlayer.removeResource("");  // Placeholder
+	case 3:
 
-	if (i == 10)
-	{
-		std::cout << "Could not find action card";
-	}
-}
 
-void Action::DoingAction(Player player1, Player player2)
-{
-	int i = 0;
-	bool exitFlag = false;
+	case 4:
+//		fromPlayer.cost - fromPlayer.getResourceCost("")
 
-	while (exitFlag == false && i < 10)
-	{
-		if (player1.actions[i] == "Take Money")
-		{
-			player1.addMoney(50);		// Placeholder number 
-			player2.addMoney(-50);		// Placeholder number 
-		}
-		if (player1.actions[i] == "Take Resource")
-		{
-			player1.addResource(1);		// Placeholder number 
-			player2.removeResource(1);  // Placeholder number 
-		}
-		if (player1.actions[i] == "Force Trade")
-		{
-
-		}
+	default:
+		std::cout << "Error, this is not an action";
+		break;
 	}
 
 
