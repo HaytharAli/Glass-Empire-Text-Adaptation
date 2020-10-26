@@ -47,7 +47,7 @@ void spaceValues(int board[][5], int space, int street, Player player) {
 		break;
 	case 8:
 		cout << "You have landed on the middleman spot. \n";
-		//make/send to middleman method
+		//make send to middleman method
 		break;
 	case 9:
 		cout << "sting! You have been placed in lockup. \n";
@@ -95,23 +95,23 @@ Board::Board()
 		*/
 	int tempBoard[9][5] = {
 		//start
-		{ 0,10,7,10,1 },
+		{ 0,10,7,10,1 }, //connects to rerun1, forward 1 
 		//rerun 1
-		{ 1,10,7,10,4 },
+		{ 1,10,7,10,4 }, //connects to start
 		//forward 1
-		{10,7,0,7,0},
+		{10,7,0,7,0}, //connects to split 1, split 2
 		//split 1
-		{ 0,1,7,10,4 },
+		{ 0,1,7,10,4 }, // connects to forward 2
 		//split 2
-		{ 10,0,7,2,5 },
+		{ 10,0,7,2,5 }, // connects to forward 2
 		//forward 2
-		{ 0,10,7,0,0 },
+		{ 0,10,7,0,0 }, //connects to split 4
 		//split 3
-		{ 10,3,0,10,6 },
+		{ 10,3,0,10,6 }, //connects to split 4
 		//split 4
-		{ 3,7,10,6,7 },
+		{ 3,7,10,6,7 }, //connects to split 3, forward 3
 		//forward 3
-		{ 10,7,7,0,3 }
+		{ 10,7,7,0,3 } //connects to start
 	};
 
 	for (int i = 0; i < 8; i++)
