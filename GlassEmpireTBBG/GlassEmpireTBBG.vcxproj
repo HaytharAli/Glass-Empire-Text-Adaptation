@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GlassEmpireTBBG.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Resource.cpp" />

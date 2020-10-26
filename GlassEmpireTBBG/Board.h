@@ -1,5 +1,7 @@
 #pragma once
 #include "Player.h"
+#include "Event.h"
+
 using namespace std;
 class Board
 {
