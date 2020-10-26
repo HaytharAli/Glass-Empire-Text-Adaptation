@@ -44,7 +44,7 @@ void Board::spaceValues(int space, int street, Player player) {
 		break;
 	case 7:
 		cout << "You've landed on an event space! \n";
-		//Event::getEvent(player, other1, other2, other3);
+		Event::getEvent(player, player, player, player);
 		break;
 	case 8:
 		cout << "You have landed on the middleman spot. \n";

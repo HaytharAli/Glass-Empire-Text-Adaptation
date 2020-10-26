@@ -1,6 +1,6 @@
 #include "Event.h"
 
-void Event::gainCash(Player triggerPlayer)
+void Event::gainCash(Player& triggerPlayer)
 {
 	int cash = rand() % 170 + 31;
 	triggerPlayer.addMoney(cash);
@@ -44,7 +44,7 @@ void Event::gainCash(Player triggerPlayer)
 	std::cout << triggerPlayer.getName() << " found $" << cash << " " << reason << std::endl;
 }
 
-void Event::moverCash(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::moverCash(Player &triggerPlayer, Player &other1, Player &other2, Player &other3)
 {
 	//Payout
 	int cash = rand() % 170 + 31;
@@ -100,7 +100,7 @@ void Event::moverCash(Player triggerPlayer, Player other1, Player other2, Player
 	std::cout << "Movers received $" << cash << reason << std::endl;
 }
 
-void Event::enforcerCash(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::enforcerCash(Player &triggerPlayer, Player& other1, Player& other2, Player& other3)
 {
 	//Payout
 	int cash = rand() % 170 + 31;
@@ -156,7 +156,7 @@ void Event::enforcerCash(Player triggerPlayer, Player other1, Player other2, Pla
 	std::cout << "Movers received $" << cash << reason << std::endl;
 }
 
-void Event::payDay(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::payDay(Player& triggerPlayer, Player& other1, Player& other2, Player& other3)
 {
 	//Payout
 	int cash = rand() % 170 + 31;
@@ -204,14 +204,14 @@ void Event::payDay(Player triggerPlayer, Player other1, Player other2, Player ot
 	std::cout << "Everyone received $" << cash << reason << std::endl;
 }
 
-void Event::sting(Player triggerPlayer)
+void Event::sting(Player& triggerPlayer)
 {
 	triggerPlayer.setLocOnStreet(0);
 	triggerPlayer.setStreet(0);
 	std::cout << "Someone called the cops! You're going to the police station, but they\'ll let you go on lack of evidence." << std::endl;
 }
 
-void Event::loseCash(Player triggerPlayer)
+void Event::loseCash(Player& triggerPlayer)
 {
 	//Payout
 	int cash = rand() % -31 + -170;
@@ -259,7 +259,7 @@ void Event::loseCash(Player triggerPlayer)
 	std::cout << triggerPlayer.getName() << " spent $" << cash << reason << std::endl;
 }
 
-void Event::HandoutCash(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::HandoutCash(Player& triggerPlayer, Player& other1, Player& other2, Player& other3)
 {
 	if (triggerPlayer.getBalance() > 100) {
 		std::cout << triggerPlayer.getName() << " found themselves in a bad way and has to pay everyone else." << std::endl;
@@ -273,7 +273,7 @@ void Event::HandoutCash(Player triggerPlayer, Player other1, Player other2, Play
 	}
 }
 
-void Event::swapResources(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::swapResources(Player& triggerPlayer, Player& other1, Player& other2, Player& other3)
 {
 	int rando = rand() % 3;
 	switch (rando) {
@@ -289,7 +289,7 @@ void Event::swapResources(Player triggerPlayer, Player other1, Player other2, Pl
 	}
 }
 
-void Event::transit(Player triggerPlayer)
+void Event::transit(Player& triggerPlayer)
 {
 	int rando = rand() % 3;
 	switch (rando) {
@@ -308,7 +308,7 @@ void Event::transit(Player triggerPlayer)
 	}
 }
 
-void Event::anonymousTip(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::anonymousTip(Player& triggerPlayer, Player& other1, Player& other2, Player& other3)
 {
 	int rando = rand() % 3;
 	switch (rando) {
@@ -327,7 +327,7 @@ void Event::anonymousTip(Player triggerPlayer, Player other1, Player other2, Pla
 	}
 }
 
-void Event::getEvent(Player triggerPlayer, Player other1, Player other2, Player other3)
+void Event::getEvent(Player& triggerPlayer, Player& other1, Player& other2, Player& other3)
 {
 	int rando = rand() % 10;
 	switch (rando) {
