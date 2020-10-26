@@ -43,17 +43,17 @@ int main()
 	
 	
 
-	Player Enf1("Enforcer1", true); //default names, we can allow the user to input them if they have time.
+	Player Enf1("Haider", true); //default names, we can allow the user to input them if they have time.
 	Enf1.addResource("Chems");
 	Enf1.addResource("Prints");
 	Enf1.setMoney(250);
-	Player Enf2("Enforcer2", true);
+	Player Enf2("Robbie", true);
 	Enf2.addResource("Photo");
 	Enf2.setMoney(50);
-	Player Mov1("Mover1", false);
+	Player Mov1("Kaelum", false);
 	Mov1.addResource("Flask");
-	Player Mov2("Mover2", false);
-	Mov1.addResource("Gas");
+	Player Mov2("Jonah", false);
+	Mov2.addResource("Gas");
 
 	playerList[0] = Enf1;
 	playerList[1] = Enf2;

@@ -86,7 +86,7 @@ string Board::streetName(int streetNumber)
 		return "Westley's Wasteland";
 			break;
 	case 2:
-		return "Old Port Walkway";
+		return "Old Port Roundabout";
 			break;
 	case 3:
 		return "Markie's Fuel Refinery";

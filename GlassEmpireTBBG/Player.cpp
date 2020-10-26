@@ -114,6 +114,10 @@ bool Player::useActionCard(std::string type)
 */
 void Player::printInv()
 {
+	if (this->getIsEnforcer())
+		std::cout << this->name << "is an" << " Enforcer" << endl;
+	else
+		std::cout << this->name << "is a" << " Mover" << endl;	
 	std::cout << this->name << " has the following items:" << std::endl
 		<< "Cash: " << this->getBalance() << endl;
 	
