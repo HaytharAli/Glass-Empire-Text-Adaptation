@@ -31,10 +31,12 @@ public:
 	void setLocOnStreet(int newLoc);
 	int getStreet();
 	int getLocOnStreet();
+	void takeAStep();//moves 1 step forward
 	
 	bool readyToWin(); // Checks Win Condition, can also be used by player to see what they still need!
 
 	void printInfo(); //Gives information about a player, used for troubleshooting purposes.
+	void printLocation();
 
 	Player(std::string name = "", bool isEnforcer = false);
 

@@ -188,6 +188,17 @@ void Player::printInfo()
 	std::cout << "\n\n\n"; //Kepe this at the end. Space out player info to make it more discenable when player 1 info stops and player 2 info starts
 
 }
+void Player::printLocation()
+{
+	std::cout << "Street: " << this->street << std::endl
+		<< "LocOnStreet: " << this->locOnStreet << std::endl;
+
+}
+void Player::takeAStep()
+{
+	int curLoc = getLocOnStreet();
+	setLocOnStreet(curLoc + 1);
+}
 
 Player::Player(std::string name, bool isEnforcer)
 {
