@@ -1,4 +1,6 @@
+#pragma once
 #include "Player.h"
+#include "Board.h"
 
 
 //Private:
@@ -190,8 +192,8 @@ void Player::printInfo()
 }
 void Player::printLocation()
 {
-	std::cout << "Street: " << this->street << std::endl
-		<< "LocOnStreet: " << this->locOnStreet << std::endl;
+	std::cout << "You are currently on: " << Board::streetName(this->street) << std::endl
+		<< "Specifically, space: " << this->locOnStreet + 1 << " out of 6" << std::endl;
 
 }
 void Player::takeAStep()

@@ -88,6 +88,7 @@ void playOutTurn(Player &p)
 	while (true)
 	{
 		choice = gamePrint(p);
+		cout << endl;
 		switch (choice) //Performs the action based on the input
 		{
 		
@@ -122,7 +123,7 @@ void playOutTurn(Player &p)
 int gamePrint(Player &p)  //Prints options, returns an integer choice
 {
 	int temp;
-	cout << "It is " << p.getName() << "'s turn. Please pick an action by entering the corresponding number.\n"
+	cout << "\nIt is " << p.getName() << "'s turn. Please pick an action by entering the corresponding number.\n\n"
 		<< "1: Roll+move\n"
 		<< "2: Trade\n"
 		<< "3: Map\n"
@@ -141,7 +142,7 @@ void roll(Player &p)
 	//Roll between 1-6
 	srand(time(NULL));
 	int rollResult = (rand() % 6) + 1; 
-	cout << p.getName() << " rolled a " << rollResult << ".\n";
+	cout << p.getName() << " rolled and moved " << rollResult << " space(s) forward.";
 	//Move loop, input starting location, and number of steps you need to move forward.
 	move(p, rollResult);
 	//Use a for loop that is the number of steps long, and will check if its at the end of a path each time
@@ -176,14 +177,14 @@ void move(Player &p, int steps)
 void fork(Player &p, int curStreet)
 {
 	int choice; // tracks fork selection
-	cout << "You have reached the end of the current Street.\n"; //change this if we have time so theres a name to all the streets. Right now it just shows a number from the array
+	cout << "You have reached the end of " << Board::streetName(curStreet) << endl; //change this if we have time so theres a name to all the streets. Right now it just shows a number from the array
 																	//use a method like std::string streetName(curStreet);
 
 
 	
 	if (curStreet == 0 || curStreet == 2 || curStreet == 7) //Forked prompt
 	{
-		cout << "There is a fork in the road ahead of you.\n You can either enter ";
+		cout << "There is a fork in the road ahead of you.\nYou can either enter\n";
 
 	}
 	else //No fork prompt
@@ -194,8 +195,8 @@ void fork(Player &p, int curStreet)
 
 	//FORKS
 	case 0: //Start; -> (connects to) Rerun 1, Forward 1
-		cout << "1: Street 1\n"
-			<< "2: Forward 1\n"
+		cout << "1: " << Board::streetName(1) << endl
+			<< "2: " << Board::streetName(2) << endl
 			<< "Please type in a 1 or a 2 to make your selection.\n";
 		cin >> choice;
 
@@ -208,8 +209,8 @@ void fork(Player &p, int curStreet)
 		break;
 
 	case 2: //Forward 1; -> split 1, split 2
-		cout << "1: Split 1\n"
-			<< "2: Split 2\n"
+		cout << "1: " << Board::streetName(3) << endl
+			<< "2: " << Board::streetName(4) << endl
 			<< "Please type in a 1 or a 2 to make your selection.\n";
 		cin >> choice;
 
@@ -222,8 +223,8 @@ void fork(Player &p, int curStreet)
 		break;
 
 	case 7: //Split 4; -> Split 3, Forward 3
-		cout << "1: Split 3\n"
-			<< "2: Forward 3\n"
+		cout << "1: " << Board::streetName(6) << endl
+			<< "2: " << Board::streetName(8) << endl
 			<< "Please type in a 1 or a 2 to make your selection.\n";
 		cin >> choice;
 
@@ -240,19 +241,19 @@ void fork(Player &p, int curStreet)
 	//NO FORKS
 	case 1: //Rerun 1; -> Start
 	case 8: //Forward 3 -> Start
-		cout << "Start street. \n";
+		cout << Board::streetName(0) << endl;
 		p.setStreet(0);
 		break;
 
 	case 3: //Split 1; -> Forward 2
 	case 4: //Split 2; -> Forward 2
-		cout << "Forward 2 Street. \n";
+		cout << Board::streetName(5) << endl;
 		p.setStreet(5);
 		break;
 
 	case 5: //Forward 2; -> Split 4
 	case 6: //Split 3; -> Split 4
-		cout << "Split 4 Street. \n";
+		cout << Board::streetName(7) << endl;
 		p.setStreet(7);
 		break;
 
@@ -287,6 +288,7 @@ void proposeTrade(Player p)
 void checkMap(Player p)
 {
 	p.printLocation();
+	//Change this so it also says the spaces in front of you
 }
 void checkInven(Player p)
 {}

@@ -1,3 +1,4 @@
+#pragma once
 #include "Resource.h"
 
 void Resource::setName(std::string name)

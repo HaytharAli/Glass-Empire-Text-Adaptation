@@ -1,8 +1,9 @@
+#pragma once
 #include "Board.h"
 using namespace std;
 
 
-void spaceValues(int board[][5], int space, int street, Player player) {
+void Board::spaceValues(int board[][5], int space, int street, Player player) {
 	//method is sent board and players street and space 
 
 	switch (board[space][street]) 
@@ -71,6 +72,40 @@ void spaceValues(int board[][5], int space, int street, Player player) {
 		player.readyToWin();
 		//send to check mover win method
 		break;
+	}
+}
+string Board::streetName(int streetNumber)
+{
+
+	switch (streetNumber)
+	{
+	case 0:
+		return "Start'as Street";
+		break;
+	case 1:
+		return "Westley's Wasteland";
+			break;
+	case 2:
+		return "Old Port Walkway";
+			break;
+	case 3:
+		return "Markie's Fuel Refinery";
+			break;
+	case 4:
+		return "Slum Street West";
+			break;
+	case 5:
+		return "Salone's Straight";
+			break;
+	case 6:
+		return "Charlies Crescent";
+			break;
+	case 7:
+		return "Aurthorities' Archway";
+			break;
+	case 8:
+		return "Goin Home Gulley";
+			break;
 	}
 }
 
